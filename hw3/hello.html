@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function funHello(n){
+        n = document.getElementById('name').value
+        document.getElementById('disp').innerHTML = 'Hello '+ n
+    }
+</script>
+<body>
+    <label><b>1. โปรแกรมทักทาย - hello.html</b></label><br>
+    <input type="text" id="name" onkeyup="funHello(this.value);">
+    <div id="disp"></div>
+</body>
+</html>
