@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(58, 145, 165);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    font-size: 50px;
+}
+
+h1{
+    color: rgb(148, 202, 60);
+    text-align: center;
+    border-style: color;
+    font-size: 50px;
+}
+
+p{
+    font-family: Verdana;
+    
+    font-size: 38px;
+    color: rgb(224, 37, 37);
+    text-align: center;
+    border-style: color;
+   
+}

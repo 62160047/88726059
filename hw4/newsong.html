@@ -1,26 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
 <script>
-    // Create array
-    arr2d = [
-        [1001, 'Wittawas'],
-        [1002, 'Drasi']
-    ];
+    songs = [];     //สร้างอาเรย์ songs 
+    addSong = [];   //สร้างอาเรย์ addSong เก็บชื่อเพลง ศิลปิน เนื้อร้อง
+    
+    function addSongFunc(n, a, l){      //ฟังก์ชั่นเพิ่มเพลง
+        
+        n = document.getElementById('addSongName').value    //ให้ตัวแปร อ้างถึงค่าที่รับมา ชื่อเพลง ศิลปิน เนื้อร้อง
+        a = document.getElementById('addArtist').value
+        l = document.getElementById('addLyrics').value
 
-    document.write(`กำหนดตัวแปรอะเรย์ <pre>
-    arr2d = [
-        [1001, 'Wittawas'],
-        [1002, 'Drasi']
-    ]
-    </pre>
-    `);
+        addSong = [n, a, l]     //นำตัวแปรเก็บในอาเรย์ addSong
 
-    //convert array to JSON string
-    str = JSON.stringify(arr2d);
+        songs.push(addSong);    //เอาอาเรย์ addSong ไปใส่ในอาเรย์ songs จะกล้ายเป็นอาเรย์ 2 มิติ
 
-    document.write("<p>แปลงอะเรย์ให้เป็น JSON string ได้ดังนี้</p>");
-    document.write(str);
+        str = JSON.stringify(songs);    //แปลงอาเรย์ songs เป็นข้อความ
 
-    // แปลง JSON string กลับเป็นอะเรย์
-    newArr2d = JSON.parse(str);
-
-    document.write("<hr>จำนวน element ของอะเรย์ newArr2d = " + newArr2d.length);
+        localStorage.setItem("songs", str);     //นำข้อความที่แปลงแล้วไปเก็บใน localStorage
+    }
+    
 </script>
+<body>
+    <form>
+    <label>Add New Song</label>
+    <a href="searchsong.html">[ค้นหาเพลง]</a>
+    <table>
+        <tr>
+            <td><a><input type="text" placeholder="ชื่อเพลง" id="addSongName"></a></td>  
+        </tr>
+        <tr>
+            <td><a><input type="text" placeholder="ศิลปิน" id="addArtist"></a></td>
+        </tr>
+        <tr>
+            <td><a><textarea name="lyrics" cols="21" rows="15" placeholder="เนื้อร้อง" id="addLyrics"></textarea></a></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="addSongFunc(this.value, this.value, this.value);" 
+                id="addSongName" id="addArtist" id="addLyrics">ADD</button>
+                <input type="reset" value="Clear"></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
